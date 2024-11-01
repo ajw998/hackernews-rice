@@ -84,3 +84,13 @@ document.querySelectorAll(".commtext").forEach((node: HTMLElement) => {
     node.parentNode.style.borderLeft = '5px solid #ff6600';
   };
 })
+
+document.querySelectorAll('span.titleline a[href]').forEach(anchor => {
+  anchor.target = '_blank'; // Ensures it always opens in a new window
+  anchor.rel = 'noopener noreferrer'; // Adds extra privacy flags
+
+  anchor.onclick = (event) => {
+    event.preventDefault();
+    window.open(anchor.href, '_blank', 'noopener,noreferrer');
+  };
+});
